@@ -1,72 +1,81 @@
 
-public class Number_6 {
+
+public class Number6Pt2 {
 
 
-	public static void main(String[] args) {
-  
-		int a = 5;
-		int b = 2;
-		int c = 3;
+public static void main(String[] args) {
+
 	
-		int max=0,min=0,mid=0;
-		
-		long startTime = System.nanoTime();
+	int max=0,min=0,mid=0;
 
-
-			if(a>b && a>c && b>c) {
-			
-				max=a;
-				min=c;
-				mid=b;
-			}
-			else if(a>b && a>c && b<c) {
-			
-				max=a;
-				min=b;
-				mid=c;
-			}
-			else if(b>c && b>a && a>c) {
-
-				max=b;
-				min=c;
-				mid=a;
-			}
-			else if(b>c && b>a && c>a) {
-
-			max=b;
-			min=a;
-			mid=c;
-			
-			}
-			else if(c>a && c>b && a>b) {
-
-				max=c;
-				min=b;
-				mid=a;
+	int x = 1;
+	int y = 2;
+	int z = 3;
   
+	
+	long startTime = System.nanoTime();
+	
+	if(x>y) {
+		if(x>z) {
+			if(y>z) {
+				max=x;
+				min=z;
+				mid=y; 
+				}
+			
+			else
+			{
+				max=x;
+				min=y;
+				mid=z;
 			}
-			else {
+		}
+		else
+		{
+			max=z;
+			min=y;
+			mid=x;
+  
+  
+		}
+  
+	}
+	else
+	{
+		if(y<z)
+		{
+			max=z;
+			min=x;
+			mid=y;
 
-				max=c;
-				min=a;
-				mid=b;
+		}	
+		else
+		{
+			if(x<y)
+			{
+				max=y;
+				min=x;
+				mid=z;  
 			}
-
-			long endTime = System.nanoTime();
-			
-			long timeElapsed = endTime - startTime;
-			
-			
-			System.out.println("Max is "+ max);
-
-			System.out.println("Min is "+ min);
-
-			System.out.println("Mid is "+ mid);
-			
-			System.out.println("Execution time in nanoseconds was: " +  timeElapsed);
-
-			
-			
+			else
+			{
+				max=y;
+				min=z;
+				mid=x;
+			}
+		}
+  
 	}
   
-}
+	long endTime = System.nanoTime();
+	
+	long timeElapsed = endTime - startTime;
+	
+	System.out.println("Max is "+ max);
+	System.out.println("Min is "+ min);
+	System.out.println("Mid is "+ mid);
+	
+	System.out.println("Execution time in nanoseconds was: " +  timeElapsed);
+	}
+  
+	}
