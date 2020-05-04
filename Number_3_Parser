@@ -1,0 +1,82 @@
+void assignment_stmt () {
+    if token != <constant_expr>
+        error();
+    else if token != <expr>
+        error();
+    lex();
+    if token != <assignment_expr>
+        error();
+    else if nextToken != <conditional_expr> 
+        error();
+    else if nextToken != <assignment>
+        error();
+    lex();
+    if token != <assignment_operator>
+        error();
+    else if nextToken != <assignement_expr>
+        error();
+    lex();
+    if token != <assignment_operator> 
+        error();
+    lex();
+    if nextToken != == | *= | %= | += | -= | <<= | >>= | &= | ^= | = 
+        error ();
+        assignment();
+}
+    
+    
+    Boolean Parse Code
+    
+    void boolean_expr () {
+        if token != <boolean_expr>
+            error();
+        if token != <boolean_term> 
+            error();
+        else if nextToken != <boolean_term> & <boolean_factor>
+            error();
+        lex();
+        if token != <boolean_factor> | <relational_expr>
+            error();
+        lex();
+        if token != <relational_expr> 
+            error();
+        if nextToken != == | != | < | <= | > | >= | 
+            error();
+            boolean();
+    }
+    
+    
+    Math Parse Code 
+    
+    void expr(void) {
+	 term();
+
+	 while (nextToken == ADD_OP || nextToken == SUB_OP) {
+		 lex();
+		 term();
+	 }
+	 
+	 void term(void) {
+	 factor();
+	
+	 while (nextToken == MULT_OP || nextToken == DIV_OP) {
+		 lex();
+		 factor();
+	 }
+	 
+	 void factor(void) {
+	 if (nextToken == IDENT || nextToken == INT_LIT)
+		 lex();
+	
+	 else { if (nextToken == LEFT_PAREN) {
+		 lex();
+		 expr();
+		 if (nextToken == RIGHT_PAREN)
+		 	lex();
+		 else
+		 	error();
+		 }
+	
+		 else
+		 error();
+	 }
