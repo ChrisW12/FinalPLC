@@ -1,4 +1,6 @@
- public static void main(String []args){
+public class Number_5 {
+
+public static void main(String []args){
         
         boolean flag = false;
         
